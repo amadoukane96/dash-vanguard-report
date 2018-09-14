@@ -76,17 +76,17 @@ def get_header():
 def get_menu():
     menu = html.Div([
 
-        dcc.Link('Overview   ', href='/overview', className="tab first"),
+        dcc.Link('Overview   ', href='/dash-vanguard-report/overview', className="tab first"),
 
-        dcc.Link('Price Performance   ', href='/price-performance', className="tab"),
+        dcc.Link('Price Performance   ', href='/dash-vanguard-report/price-performance', className="tab"),
 
-        dcc.Link('Portfolio & Management   ', href='/portfolio-management', className="tab"),
+        dcc.Link('Portfolio & Management   ', href='/dash-vanguard-report/portfolio-management', className="tab"),
 
-        dcc.Link('Fees & Minimums   ', href='/fees', className="tab"),
+        dcc.Link('Fees & Minimums   ', href='/dash-vanguard-report/fees', className="tab"),
 
-        dcc.Link('Distributions   ', href='/distributions', className="tab"),
+        dcc.Link('Distributions   ', href='/dash-vanguard-report/distributions', className="tab"),
 
-        dcc.Link('News & Reviews   ', href='/news-and-reviews', className="tab")
+        dcc.Link('News & Reviews   ', href='/dash-vanguard-report/news-and-reviews', className="tab")
 
     ], className="row ")
     return menu
@@ -1285,19 +1285,19 @@ app.layout = html.Div([
 @app.callback(dash.dependencies.Output('page-content', 'children'),
               [dash.dependencies.Input('url', 'pathname')])
 def display_page(pathname):
-    if pathname == '/' or pathname == '/overview':
+    if pathname == '/dash-vanguard-report' or pathname == '/dash-vanguard-report/overview':
         return overview
-    elif pathname == '/price-performance':
+    elif pathname == '/dash-vanguard-report/price-performance':
         return pricePerformance
-    elif pathname == '/portfolio-management':
+    elif pathname == '/dash-vanguard-report/portfolio-management':
         return portfolioManagement
-    elif pathname == '/fees':
+    elif pathname == '/dash-vanguard-report/fees':
         return feesMins
-    elif pathname == '/distributions':
+    elif pathname == '/dash-vanguard-report/distributions':
         return distributions
-    elif pathname == '/news-and-reviews':
+    elif pathname == '/dash-vanguard-report/news-and-reviews':
         return newsReviews
-    elif pathname == '/full-view':
+    elif pathname == '/dash-vanguard-report/full-view':
         return overview,pricePerformance,portfolioManagement,feesMins,distributions,newsReviews
     else:
         return noPage
